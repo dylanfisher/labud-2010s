@@ -1,1 +1,18 @@
 // Buttons
+
+.button {
+  @include h5;
+  background-color: $white;
+  color: $black;
+  padding: 1em 1.4em;
+  text-align: center;
+  display: inline-block;
+  border-radius: 0.8em;
+  text-decoration: none;
+  border: 1px solid $white;
+
+  &:hover {
+    background-color: $black;
+    color: $white;
+  }
+}
