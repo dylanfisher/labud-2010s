@@ -52,8 +52,11 @@ h1 {
 
 hr {
   box-sizing: content-box; /* 1 */
-  height: 0; /* 1 */
   overflow: visible; /* 2 */
+  border: 0;
+  height: 1px;
+  background-color: $white;
+  margin: 0;
 }
 
 /**
