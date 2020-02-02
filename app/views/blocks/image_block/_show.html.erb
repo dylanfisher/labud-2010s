@@ -1,2 +1,25 @@
-<p><%= block.class.name %> <%= block.id %></p>
-<p>Find me in /app/views/blocks/<%= block.model_name.singular %>/_show.html.erb</p>
+<% if block.full_bleed? %>
+  <%= lazy_image block.media_item %>
+  <% if block.media_item.caption.present? %>
+    <div class="site-padding">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col">
+            <%= content_tag :div, md(block.media_item.caption), class: 'caption' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <div class="site-container">
+    <div class="container-fluid">
+      <div class="row">
+        <%= content_tag :div, class: "mx-auto #{block.col_class}" do %>
+          <%= lazy_image block.media_item %>
+          <%= content_tag :div, md(block.media_item.caption), class: 'caption' if block.media_item.caption.present? %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

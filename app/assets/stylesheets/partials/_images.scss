@@ -3,3 +3,25 @@
 img {
   vertical-align: bottom;
 }
+
+.lazy-image {
+  transition: opacity 0.3s;
+}
+
+.lazyload,
+.lazyloading {
+  opacity: 0;
+}
+
+.lazyloaded {
+  opacity: 1;
+}
+
+.forest-image-jump-fix--image-jpeg,
+.lazy-image--background {
+  background-color: $image-placeholder-background-color;
+}
+
+.caption {
+  margin-top: map-get($spacers, 2);
+}

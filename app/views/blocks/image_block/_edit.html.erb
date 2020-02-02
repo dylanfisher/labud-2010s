@@ -1,3 +1,8 @@
-<%= f.association :media_item, as: :image %>
-<%= f.input :column_size %>
-<%#= f.input :column_size, as: :select, collection: ImageBlock.column_sizes, include_blank: true, placeholder: 'Text Size' %>
+<div class="row">
+  <div class="col-sm-6">
+    <%= f.association :media_item, as: :image %>
+  </div>
+  <div class="col-sm-6">
+    <%= f.input :column_size, as: :select, collection: ImageBlock.column_sizes.collect { |k, v| [k.titleize, k] }, include_blank: false, placeholder: 'Column Size' %>
+  </div>
+</div>
