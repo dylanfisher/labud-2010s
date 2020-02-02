@@ -3,9 +3,21 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col">
-          Hello world
+          <div class="display-title text-center">
+            <%= md site_title %>
+          </div>
         </div>
       </div>
+
+      <% @posts.each do |post| %>
+        <div class="row">
+          <div class="col">
+            <div class="h4">
+              <%= link_to md(post.title), post_path(post.to_friendly_param), class: 'default-link' %>
+            </div>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 <% end %>

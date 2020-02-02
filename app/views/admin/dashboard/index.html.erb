@@ -1,0 +1,27 @@
+<div class="admin-header">
+  <div class="well">
+    <h1>
+      Dashboard
+      <span class="badge" title="<%= number_with_delimiter(@admin_resources.count) %> total resources"><%= number_with_delimiter @admin_resources.count %></span>
+    </h1>
+  </div>
+</div>
+
+<% @_rendered_resources = [] %>
+
+<% if current_user.admin? %>
+  <%= render 'admin/dashboard/panel',
+             title: 'Content',
+             resources: @admin_resources.select { |r| [Page, MediaItem].include?(r) } %>
+  <%= render 'admin/dashboard/panel',
+             title: 'Admin',
+             resources: @admin_resources - @_rendered_resources %>
+<% else %>
+  <%= render 'admin/dashboard/panel',
+             title: 'Content Types',
+             resources: @admin_resources %>
+<% end %>
+
+<% if @admin_resources.blank? %>
+  <p>You do not have permission to view any resources.</p>
+<% end %>

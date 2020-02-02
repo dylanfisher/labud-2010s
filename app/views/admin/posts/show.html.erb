@@ -1,0 +1,14 @@
+<p>Find me in app/views/forest/posts/show.html.erb</p>
+
+<%# content_for :page_description, @post.description if @post.try(:description).present? %>
+
+<p>
+  <b>Title</b>
+  <%= @post.title %>
+</p>
+<p>
+  <b>User</b>
+  <%= @post.user %>
+</p>
+
+<%= render_blocks @post %>
