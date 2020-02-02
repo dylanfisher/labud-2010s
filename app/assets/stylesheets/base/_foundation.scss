@@ -1,0 +1,7 @@
+// Foundation
+
+html {
+  @include default-font;
+  background-color: $black;
+  color: $white;
+}

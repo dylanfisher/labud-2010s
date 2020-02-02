@@ -1,0 +1,120 @@
+// Font stacks
+$serif: 'untitled-serif', serif;
+$display: 'AdmiralCAT', serif;
+$sans-bold: 'LabGrotesque-Bold', sans-serif;
+
+@mixin body-text {
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: 1.375;
+  font-family: $serif;
+
+  @include breakpoint(sm) {
+    font-size: 24px;
+  }
+}
+.body-text { @include body-text; }
+
+@mixin default-font {
+  @include body-text;
+}
+
+@mixin body-text-small {
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 1.4375;
+  font-family: $serif;
+}
+.body-text-small { @include body-text-small; }
+
+@mixin body-text-large {
+  font-size: 28px;
+  letter-spacing: 0;
+  line-height: 1.222;
+  font-family: $serif;
+
+  @include breakpoint(sm) {
+    font-size: 36px;
+  }
+}
+.body-text-large { @include body-text-large; }
+
+@mixin display-title {
+  font-size: 42px;
+  letter-spacing: 0;
+  line-height: 1.2;
+  font-family: $display;
+
+  @include breakpoint(sm) {
+    font-size: 60px;
+  }
+}
+.display-title { @include display-title; }
+
+@mixin display-title-small {
+  font-size: 26px;
+  letter-spacing: 0;
+  line-height: 1.2;
+  font-family: $display;
+
+  @include breakpoint(sm) {
+    font-size: 34px;
+  }
+}
+.display-title-small { @include display-title-small; }
+
+@mixin h1 {
+  font-size: 60px;
+  letter-spacing: 0;
+  line-height: 1.16;
+  font-family: $sans-bold;
+
+  @include breakpoint(sm) {
+    font-size: 96px;
+  }
+}
+.h1 { @include h1; }
+
+@mixin h2 {
+  font-size: 52px;
+  letter-spacing: 0;
+  line-height: 1.305;
+  font-family: $sans-bold;
+
+  @include breakpoint(sm) {
+    font-size: 72px;
+  }
+}
+.h2 { @include h2; }
+
+@mixin h3 {
+  font-size: 30px;
+  letter-spacing: 0;
+  line-height: 1.166;
+  font-family: $sans-bold;
+
+  @include breakpoint(sm) {
+    font-size: 48px;
+  }
+}
+.h3 { @include h3; }
+
+@mixin h4 {
+  font-size: 26px;
+  letter-spacing: 0;
+  line-height: 1.4166;
+  font-family: $sans-bold;
+
+  @include breakpoint(sm) {
+    font-size: 34px;
+  }
+}
+.h4 { @include h4; }
+
+@mixin h5 {
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 1.5;
+  font-family: $sans-bold;
+}
+.h5 { @include h5; }
