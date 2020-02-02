@@ -1,0 +1,17 @@
+<div class="site-container">
+  <div class="container-fluid">
+    <%= content_tag :div, class: "row small-gutters-xs #{'small-gutters' if block.column_size.to_i < 4}" do %>
+      <% block.image_grid_block_items.includes(:media_item).each do |image_grid_block_item| %>
+        <%= content_tag :div, class: "image-grid-block__item col-6 col-md-#{block.column_size}" do %>
+          <%= lazy_image image_grid_block_item.media_item %>
+          <%= content_tag :div, md(image_grid_block_item.media_item.caption), class: 'caption' if image_grid_block_item.media_item.caption.present? %>
+        <% end %>
+      <% end %>
+      <% if block.caption.present? %>
+        <div class="col">
+          <%= content_tag :div, md(block.caption), class: 'image-grid-block__caption caption' %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

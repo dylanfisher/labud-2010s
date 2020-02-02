@@ -1,0 +1,9 @@
+<div class="row form-group">
+  <div class="col-sm-8">
+    <%= f.association :media_items, as: :gallery, sortable: true %>
+  </div>
+  <div class="col-sm-4">
+    <%= f.input :column_size, input_html: { min: 1, max: 6 }, hint: 'Specify a column size between 1 and 6' %>
+    <%= f.input :caption, markdown: true %>
+  </div>
+</div>

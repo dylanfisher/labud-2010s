@@ -1,0 +1,29 @@
+// Image Grid Block
+
+.image-grid-block {
+
+}
+
+.image-grid-block__item {
+  @include breakpoint(md) {
+    margin-bottom: $gutter * 2;
+  }
+
+  margin-bottom: $gutter;
+
+  .small-gutters & {
+    margin-bottom: $gutter;
+  }
+}
+
+.image-grid-block__caption {
+  margin-top: calc(-#{$gutter} + #{map-get($spacers, 2)});
+
+  @include breakpoint(md) {
+    margin-top: calc((-#{$gutter} * 2) + #{map-get($spacers, 2)});
+  }
+
+  .small-gutters & {
+    margin-top: calc(-#{$gutter} + #{map-get($spacers, 2)});
+  }
+}

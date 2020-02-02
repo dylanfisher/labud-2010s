@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_02_194737) do
+ActiveRecord::Schema.define(version: 2020_02_02_220615) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,6 +73,23 @@ ActiveRecord::Schema.define(version: 2020_02_02_194737) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["media_item_id"], name: "index_image_blocks_on_media_item_id"
+  end
+
+  create_table "image_grid_block_items", force: :cascade do |t|
+    t.bigint "image_grid_block_id", null: false
+    t.bigint "media_item_id", null: false
+    t.integer "position"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["image_grid_block_id"], name: "index_image_grid_block_items_on_image_grid_block_id"
+    t.index ["media_item_id"], name: "index_image_grid_block_items_on_media_item_id"
+  end
+
+  create_table "image_grid_blocks", force: :cascade do |t|
+    t.integer "column_size"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.text "caption"
   end
 
   create_table "media_items", id: :serial, force: :cascade do |t|
@@ -215,5 +232,7 @@ ActiveRecord::Schema.define(version: 2020_02_02_194737) do
   add_foreign_key "block_slots", "block_kinds"
   add_foreign_key "block_slots", "block_layouts"
   add_foreign_key "image_blocks", "media_items"
+  add_foreign_key "image_grid_block_items", "image_grid_blocks"
+  add_foreign_key "image_grid_block_items", "media_items"
   add_foreign_key "posts", "users"
 end
