@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_02_184329) do
+ActiveRecord::Schema.define(version: 2020_02_02_194737) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,14 @@ ActiveRecord::Schema.define(version: 2020_02_02_184329) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["cacheable_type", "cacheable_id"], name: "index_cache_records_on_type_and_id"
+  end
+
+  create_table "image_blocks", force: :cascade do |t|
+    t.bigint "media_item_id", null: false
+    t.integer "column_size"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["media_item_id"], name: "index_image_blocks_on_media_item_id"
   end
 
   create_table "media_items", id: :serial, force: :cascade do |t|
@@ -132,6 +140,13 @@ ActiveRecord::Schema.define(version: 2020_02_02_184329) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
+  create_table "quote_blocks", force: :cascade do |t|
+    t.text "quote"
+    t.string "quote_source"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "settings", id: :serial, force: :cascade do |t|
     t.string "title"
     t.string "slug"
@@ -143,6 +158,13 @@ ActiveRecord::Schema.define(version: 2020_02_02_184329) do
     t.string "locale"
     t.index ["locale", "slug"], name: "index_settings_on_locale_and_slug", unique: true
     t.index ["locale"], name: "index_settings_on_locale"
+  end
+
+  create_table "text_blocks", force: :cascade do |t|
+    t.text "text"
+    t.integer "text_size"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "translations", force: :cascade do |t|
@@ -192,5 +214,6 @@ ActiveRecord::Schema.define(version: 2020_02_02_184329) do
 
   add_foreign_key "block_slots", "block_kinds"
   add_foreign_key "block_slots", "block_layouts"
+  add_foreign_key "image_blocks", "media_items"
   add_foreign_key "posts", "users"
 end

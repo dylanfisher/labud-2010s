@@ -100,13 +100,13 @@ $sans-bold: 'LabGrotesque-Bold', sans-serif;
 .h3 { @include h3; }
 
 @mixin h4 {
-  font-size: 26px;
+  font-size: 19px;
   letter-spacing: 0;
   line-height: 1.4166;
   font-family: $sans-bold;
 
   @include breakpoint(md) {
-    font-size: 34px;
+    font-size: 24px;
   }
 }
 .h4 { @include h4; }

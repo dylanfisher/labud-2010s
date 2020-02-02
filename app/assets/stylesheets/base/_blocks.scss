@@ -1,1 +1,11 @@
 // Blocks
+
+.block {
+  margin-top: map-get($spacers, 6);
+  margin-bottom: map-get($spacers, 6);
+
+  @include breakpoint(md) {
+    margin-top: map-get($spacers, 8);
+    margin-bottom: map-get($spacers, 8);
+  }
+}

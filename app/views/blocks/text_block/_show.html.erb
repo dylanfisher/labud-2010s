@@ -1,0 +1,9 @@
+<div class="site-container">
+  <div class="container-fluid">
+    <div class="row">
+      <%= content_tag :div, class: "col #{'body-text-large' if block.large?}" do %>
+        <%= md block.text %>
+      <% end %>
+    </div>
+  </div>
+</div>

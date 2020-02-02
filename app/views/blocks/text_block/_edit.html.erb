@@ -1,0 +1,2 @@
+<%= f.input :text_size, as: :select, collection: TextBlock.text_sizes.collect { |k, v| [k.titleize, k] }, include_blank: false, placeholder: 'Text Size' %>
+<%= f.input :text, markdown: true %>

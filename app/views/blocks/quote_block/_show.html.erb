@@ -1,0 +1,10 @@
+<div class="site-container">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-10 offset-md-1 text-center">
+        <%= content_tag :div, md(block.quote), class: 'h2' if block.quote.present? %>
+        <%= content_tag :div, md(block.quote_source), class: 'h4 mt-2' if block.quote_source.present? %>
+      </div>
+    </div>
+  </div>
+</div>
