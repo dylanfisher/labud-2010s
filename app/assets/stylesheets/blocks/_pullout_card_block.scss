@@ -1,0 +1,16 @@
+// Pullout Card Block
+
+.pullout-card-block {
+
+}
+
+.pullout-card-block__content {
+  background-color: $white;
+  color: $black;
+  border-radius: 0.8em;
+  padding: 0.8em 1.2em;
+
+  @include breakpoint(md) {
+    padding: 1.6em 2.4em;
+  }
+}
