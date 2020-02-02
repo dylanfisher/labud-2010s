@@ -10,14 +10,14 @@
 .site-max-width { @include site-max-width; }
 
 @mixin site-padding-left {
-  @include breakpoint(sm) {
+  @include breakpoint(md) {
     padding-left: $site-padding-sm;
   }
 }
 .site-padding-left { @include site-padding-left; }
 
 @mixin site-padding-right {
-  @include breakpoint(sm) {
+  @include breakpoint(md) {
     padding-right: $site-padding-sm;
   }
 }

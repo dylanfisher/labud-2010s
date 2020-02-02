@@ -9,7 +9,7 @@ $sans-bold: 'LabGrotesque-Bold', sans-serif;
   line-height: 1.375;
   font-family: $serif;
 
-  @include breakpoint(sm) {
+  @include breakpoint(md) {
     font-size: 24px;
   }
 }
@@ -33,7 +33,7 @@ $sans-bold: 'LabGrotesque-Bold', sans-serif;
   line-height: 1.222;
   font-family: $serif;
 
-  @include breakpoint(sm) {
+  @include breakpoint(md) {
     font-size: 36px;
   }
 }
@@ -45,7 +45,7 @@ $sans-bold: 'LabGrotesque-Bold', sans-serif;
   line-height: 1.2;
   font-family: $display;
 
-  @include breakpoint(sm) {
+  @include breakpoint(md) {
     font-size: 60px;
   }
 }
@@ -57,7 +57,7 @@ $sans-bold: 'LabGrotesque-Bold', sans-serif;
   line-height: 1.2;
   font-family: $display;
 
-  @include breakpoint(sm) {
+  @include breakpoint(md) {
     font-size: 34px;
   }
 }
@@ -69,7 +69,7 @@ $sans-bold: 'LabGrotesque-Bold', sans-serif;
   line-height: 1.16;
   font-family: $sans-bold;
 
-  @include breakpoint(sm) {
+  @include breakpoint(md) {
     font-size: 96px;
   }
 }
@@ -81,7 +81,7 @@ $sans-bold: 'LabGrotesque-Bold', sans-serif;
   line-height: 1.305;
   font-family: $sans-bold;
 
-  @include breakpoint(sm) {
+  @include breakpoint(md) {
     font-size: 72px;
   }
 }
@@ -93,7 +93,7 @@ $sans-bold: 'LabGrotesque-Bold', sans-serif;
   line-height: 1.166;
   font-family: $sans-bold;
 
-  @include breakpoint(sm) {
+  @include breakpoint(md) {
     font-size: 48px;
   }
 }
@@ -105,7 +105,7 @@ $sans-bold: 'LabGrotesque-Bold', sans-serif;
   line-height: 1.4166;
   font-family: $sans-bold;
 
-  @include breakpoint(sm) {
+  @include breakpoint(md) {
     font-size: 34px;
   }
 }

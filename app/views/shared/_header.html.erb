@@ -1,0 +1,18 @@
+<header id="header" class="header mt-3 mb-3">
+  <div class="site-container">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col text-right">
+          <%= link_to root_path, class: 'blank-link' do %>
+            <%= embedded_svg 'question-mark-logo', class: 'header__home-logo' %>
+          <% end %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <h1 class="display-title text-center"><%= site_title %></h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
