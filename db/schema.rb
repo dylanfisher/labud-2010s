@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_03_032620) do
+ActiveRecord::Schema.define(version: 2020_02_03_041702) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -274,6 +274,14 @@ ActiveRecord::Schema.define(version: 2020_02_03_032620) do
     t.index ["slug"], name: "index_users_on_slug", unique: true
   end
 
+  create_table "video_blocks", force: :cascade do |t|
+    t.bigint "media_item_id", null: false
+    t.boolean "autoplay", default: false, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["media_item_id"], name: "index_video_blocks_on_media_item_id"
+  end
+
   add_foreign_key "block_slots", "block_kinds"
   add_foreign_key "block_slots", "block_layouts"
   add_foreign_key "collage_block_items", "collage_blocks"
@@ -282,4 +290,5 @@ ActiveRecord::Schema.define(version: 2020_02_03_032620) do
   add_foreign_key "image_grid_block_items", "image_grid_blocks"
   add_foreign_key "image_grid_block_items", "media_items"
   add_foreign_key "posts", "users"
+  add_foreign_key "video_blocks", "media_items"
 end

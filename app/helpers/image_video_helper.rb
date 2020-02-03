@@ -46,33 +46,11 @@ module ImageVideoHelper
     end
   end
 
-  def simple_lazy_image(record, options = {})
-    size = options.delete(:size) || record.options[:styles].keys.first
-    data = options.delete(:data) || {}
-    data.merge!(src: record.url(size))
-
-    if options.delete(:background)
-      content_tag :div,
-                  nil,
-                  class: "lazy-image lazy-image--background lazyload #{options.delete(:class)}",
-                  role: 'img',
-                  data: {
-                    bg: data.delete(:src),
-                    **data
-                  },
-                  **options
-    else
-      image_tag uri_image_placeholder, class: "lazy-image lazyload #{options.delete(:class)}", data: data, **options
-    end
-  end
-
   def lazy_video(record, options = {})
     data = options.delete(:data) || {}
-    poster_media_item = options.delete(:poster_media_item) || record.try(:media_item)
-    options.merge!(poster: poster_media_item.attachment.url(:medium)) if poster_media_item.try(:attachment).present?
     autoplay = options.delete(:autoplay) || record.try(:autoplay)
     controls = options.fetch(:controls, !autoplay)
-    loop = options.fetch(:loop, autoplay)
+    video_loop = options.fetch(:loop, autoplay)
     video_tag_html = capture do
       video_tag '',
                 class: "lazy-video #{options.delete(:class)}",
@@ -80,7 +58,7 @@ module ImageVideoHelper
                 playsinline: autoplay,
                 autoplay: autoplay,
                 muted: autoplay,
-                loop: loop,
+                loop: video_loop,
                 data: {
                   src: (options.delete(:src) || record.try(:video_url)),
                   src_mobile: (options.delete(:src_mobile) || record.try(:video_url_mobile)),
