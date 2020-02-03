@@ -21,6 +21,7 @@
               </div>
               <div class="col-sm-6">
                 <%= render 'admin/form_inputs/status', f: f, record: @post %>
+                <%= f.association :media_item, as: :image, label: 'Featured image' %>
               </div>
             </div>
           </div>

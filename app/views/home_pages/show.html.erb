@@ -1,23 +1,41 @@
-<% cache [application_cache_key, 'home'], expires_in: 4.weeks do %>
-  <div class="site-container">
+<%= image_tag 'svg/logo.svg', class: 'home__logo' %>
+
+<% if Setting.for(:foreward).present? %>
+  <div class="home__forward-container site-container">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col card">
+          <h3 class="h4">Foreward</h3>
+          <%= content_tag :div, md(Setting.for(:foreward)), class: 'mt-2' %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<% @posts.includes(:media_item, :user).shuffle.each_with_index do |post, index| %>
+  <%= content_tag :div,
+                  class: "home__post-card-wrapper col-md-6 mb-8 #{index.odd? ? 'offset-md-5' : 'offset-md-1'}",
+                  data: {
+                    image_url: post.media_item.attachment.url(:small) } do %>
+    <%= link_to post_path(post.to_friendly_param), class: 'home__post-card card blank-link' do %>
+      <%= content_tag :div, md(post.title), class: 'h3' %>
+      <%= content_tag :div, post.user.name, class: 'mt-2' %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<div id="home__post-image-overlay" class="home__post-image-overlay"></div>
+
+<% if Setting.for(:colophon).present? %>
+  <div class="home__colophon-container site-container mb-8">
     <div class="container-fluid">
       <div class="row">
         <div class="col">
-          <div class="display-title text-center">
-            <%= md site_title %>
-          </div>
+          <h3 class="h4">Colophon</h3>
+          <%= content_tag :div, md(Setting.for(:colophon)), class: 'mt-2' %>
         </div>
       </div>
-
-      <% @posts.each do |post| %>
-        <div class="row">
-          <div class="col">
-            <div class="h4">
-              <%= link_to md(post.title), post_path(post.to_friendly_param), class: 'default-link' %>
-            </div>
-          </div>
-        </div>
-      <% end %>
     </div>
   </div>
 <% end %>

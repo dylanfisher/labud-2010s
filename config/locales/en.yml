@@ -1,33 +1,5 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  forest:
+    settings:
+      colophon: This anthology was completed in What Did The 2010’s Look Like, a workshop taught by Nika Fisher at Parsons School of Design. It was offered in January 2020 and ran for five weeks. This website was designed and developed by Nika and Dylan Fisher of Labud.
+      foreward: How do you describe what something looks like? We experience many of the same events in different ways and as designers, we learn to communicate through form. As a new decade emerges, it’s natural to reflect on the past and consider how it will be remembered – personally and collectively. Throughout the span of five weeks, 15 Parsons Communication Design students are asked to contribute to this discussion meaningfully by visualizing their own postcards of the recent past.

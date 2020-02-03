@@ -54,7 +54,7 @@ class Admin::PostsController < Admin::ForestController
 
     def post_params
       # Add blockable params to the permitted attributes if this record is blockable `**BlockSlot.blockable_params`
-      params.require(:post).permit(:slug, :status, :title, :user_id, **BlockSlot.blockable_params)
+      params.require(:post).permit(:slug, :status, :title, :user_id, :media_item_id, **BlockSlot.blockable_params)
     end
 
     def set_post

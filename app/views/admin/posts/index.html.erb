@@ -49,4 +49,8 @@
   </table>
 </div>
 
+<% if @posts.blank? %>
+  <p>You haven't uploaded any posts yet. <%= link_to 'Click here', new_admin_post_path %> to create your first post.</p>
+<% end %>
+
 <%= paginate @posts %>

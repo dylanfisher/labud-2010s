@@ -13,7 +13,7 @@
 .small-gutters { @include small-gutters; }
 
 @mixin small-gutters-xs {
-  @include media-breakpoint-down(sm) {
+  @include breakpoint(xs) {
     padding-left: $gutter / 2;
     padding-right: $gutter / 2;
 

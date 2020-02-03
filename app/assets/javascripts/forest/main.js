@@ -21,6 +21,9 @@ App.runFunctions = function(array) {
 $(document).on('turbolinks:load', function(e) {
   App.scrollTop = $(window).scrollTop();
 
+  App.$html = $('html');
+  App.$body = $('body');
+
   App.windowWidth  = $(window).width();
   App.windowHeight = $(window).height();
 

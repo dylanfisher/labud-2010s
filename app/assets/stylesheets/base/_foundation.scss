@@ -5,3 +5,11 @@ html {
   background-color: $black;
   color: $white;
 }
+
+body {
+  padding-top: 120px;
+
+  @include breakpoint(md) {
+    padding-top: 160px;
+  }
+}

@@ -1,0 +1,13 @@
+// Cards
+
+.card {
+  background-color: $white;
+  color: $black;
+  border-radius: 0.8em;
+  padding: 0.8em 1.2em;
+  display: block;
+
+  @include breakpoint(md) {
+    padding: 1.6em 2.4em;
+  }
+}

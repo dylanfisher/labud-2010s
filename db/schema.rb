@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_03_041702) do
+ActiveRecord::Schema.define(version: 2020_02_03_051524) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -105,6 +105,13 @@ ActiveRecord::Schema.define(version: 2020_02_03_041702) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "embed_blocks", force: :cascade do |t|
+    t.text "embed_code"
+    t.boolean "full_bleed", default: false, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "image_blocks", force: :cascade do |t|
     t.bigint "media_item_id", null: false
     t.integer "column_size"
@@ -189,7 +196,9 @@ ActiveRecord::Schema.define(version: 2020_02_03_041702) do
     t.jsonb "blockable_metadata", default: {}
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "media_item_id"
     t.index ["blockable_metadata"], name: "index_posts_on_blockable_metadata", using: :gin
+    t.index ["media_item_id"], name: "index_posts_on_media_item_id"
     t.index ["slug"], name: "index_posts_on_slug", unique: true
     t.index ["status"], name: "index_posts_on_status"
     t.index ["user_id"], name: "index_posts_on_user_id"
@@ -289,6 +298,7 @@ ActiveRecord::Schema.define(version: 2020_02_03_041702) do
   add_foreign_key "image_blocks", "media_items"
   add_foreign_key "image_grid_block_items", "image_grid_blocks"
   add_foreign_key "image_grid_block_items", "media_items"
+  add_foreign_key "posts", "media_items"
   add_foreign_key "posts", "users"
   add_foreign_key "video_blocks", "media_items"
 end
