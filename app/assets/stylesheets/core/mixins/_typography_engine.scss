@@ -94,7 +94,7 @@ $sans-bold: 'LabGrotesque-Bold', sans-serif;
   font-family: $sans-bold;
 
   @include breakpoint(md) {
-    font-size: 48px;
+    font-size: 38px;
   }
 }
 .h3 { @include h3; }
