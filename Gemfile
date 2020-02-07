@@ -16,6 +16,8 @@ gem 'dalli'
 gem 'rack-cors', require: 'rack/cors'
 gem 'jbuilder', '~> 2.7'
 
+gem 'sprockets', '~> 3.7.2'
+
 group :development do
   gem 'listen'
   gem 'spring'
