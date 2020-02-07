@@ -1,4 +1,9 @@
-<video src="https://s3.amazonaws.com/labud-2010s/production/v2/media_items/attachments/000/000/011/original/2010s-logo_black.mp4" class="home__logo" autoplay loop playsinline muted></video>
+<% lazy_content = capture do %>
+  <div class="lazy-content--source">
+    <video src="https://s3.amazonaws.com/labud-2010s/production/v2/media_items/attachments/000/000/011/original/2010s-logo_black.mp4" class="home__logo" autoplay loop playsinline muted></video>
+  </div>
+<% end %>
+<%= content_tag :div, nil, class: 'lazy-content', data: { lazy_content: lazy_content } %>
 
 <% @posts.includes(:media_item, :user).shuffle.each_with_index do |post, index| %>
   <%= content_tag :div,

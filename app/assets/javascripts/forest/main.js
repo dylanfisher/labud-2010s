@@ -13,6 +13,9 @@ App.runFunctions = function(array) {
     array[i]();
   }
 };
+App.isHomePage = function() {
+  return App.$body.hasClass('controller--home_pages');
+};
 
 //////////////////////////////////////////////////////////////
 // On page load
