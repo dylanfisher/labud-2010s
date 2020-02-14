@@ -17,11 +17,30 @@
               <div class="col-sm-6">
                 <%= render 'admin/form_inputs/slug', f: f %>
                 <%= f.input :title %>
+                <%#= f.association :related_posts, remote: { path: admin_posts_path } %>
                 <%= f.button :submit, class: 'btn-success' %>
               </div>
               <div class="col-sm-6">
                 <%= render 'admin/form_inputs/status', f: f, record: @post %>
                 <%= f.association :media_item, as: :image, label: 'Featured image' %>
+              </div>
+              <div class="col-sm-12">
+                <div class="sortable-field-set">
+                  <%= f.simple_fields_for :related_posts do |record| %>
+                    <%= render 'related_post_item_fields', f: record %>
+                  <% end %>
+                  <%= link_to_add_association 'Add related post',
+                                              f,
+                                              :related_posts,
+                                              partial: 'related_post_item_fields',
+                                              class: 'btn btn-default',
+                                              data: {
+                                                association_insertion_node: 'this',
+                                                association_insertion_method: 'before'
+                                              } %>
+                </div>
+                <br>
+                <%= f.button :submit, class: 'btn-success' %>
               </div>
             </div>
           </div>

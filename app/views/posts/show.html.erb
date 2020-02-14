@@ -12,3 +12,41 @@
 </div>
 
 <%= render_blocks @post %>
+
+<% if @post.related_posts.present? %>
+  <div class="post__related-posts">
+    <div class="site-container">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col">
+            <div class="h2 mt-6">Connections</div>
+          </div>
+        </div>
+        <div class="row">
+          <% @post.related_posts.each do |post_relation| %>
+            <div class="col-md-6 my-6">
+              <div class="row markdown">
+                <div class="col-4">
+                  <%= link_to post_path(post_relation.related_post.to_friendly_param), class: 'blank-link' do %>
+                    <%= lazy_image post_relation.related_post.media_item, background: true, class: 'background-image square-image' %>
+                  <% end %>
+                </div>
+                <div class="col-8">
+                  <div class="h4">
+                    <%= link_to md(post_relation.related_post.title), post_path(post_relation.related_post.to_friendly_param), class: 'blank-link-hover' %>
+                  </div>
+                  <%= content_tag :div, post_relation.related_post.user.name, class: 'mt-2' if post_relation.related_post.user.name.present? %>
+                </div>
+                <% if post_relation.text.present? %>
+                  <div class="col-12 mt-2">
+                    <%= md post_relation.text %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,29 @@
+<div class="nested-fields sortable-field">
+  <div class="panel panel-default">
+    <div class="panel-heading sortable-field-set__handle">
+      <h3 class="panel-title">
+        <% if f.object.try(:related_post).present? %>
+          <span class="text-muted"><%= f.object.related_post.user.name %></span> 
+          <%= stripdown f.object.related_post.title %>
+        <% else %>
+          Related post
+        <% end %>
+      </h3>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-sm-6">
+          <%= f.association :related_post, remote: { path: admin_posts_path } %>
+        </div>
+        <div class="col-sm-6">
+          <%= f.input :text, label: 'Why is this post related?', markdown: true %>
+        </div>
+      </div>
+      <br>
+      <%= link_to_remove_association 'Remove related post', f, class: 'btn btn-default' %>
+    </div>
+  </div>
+  <div class="sortable-field-set__position">
+    <%= f.input :position, as: :hidden %>
+  </div>
+</div>

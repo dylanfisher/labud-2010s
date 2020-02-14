@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_03_051524) do
+ActiveRecord::Schema.define(version: 2020_02_14_030810) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -218,6 +218,17 @@ ActiveRecord::Schema.define(version: 2020_02_03_051524) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "related_posts", force: :cascade do |t|
+    t.bigint "post_id", null: false
+    t.bigint "related_post_id", null: false
+    t.integer "position"
+    t.text "text"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_id"], name: "index_related_posts_on_post_id"
+    t.index ["related_post_id"], name: "index_related_posts_on_related_post_id"
+  end
+
   create_table "settings", id: :serial, force: :cascade do |t|
     t.string "title"
     t.string "slug"
@@ -300,5 +311,7 @@ ActiveRecord::Schema.define(version: 2020_02_03_051524) do
   add_foreign_key "image_grid_block_items", "media_items"
   add_foreign_key "posts", "media_items"
   add_foreign_key "posts", "users"
+  add_foreign_key "related_posts", "posts"
+  add_foreign_key "related_posts", "posts", column: "related_post_id"
   add_foreign_key "video_blocks", "media_items"
 end

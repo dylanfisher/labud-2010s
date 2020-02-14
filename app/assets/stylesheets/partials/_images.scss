@@ -25,3 +25,19 @@ img {
 .caption {
   margin-top: map-get($spacers, 2);
 }
+
+.background-image {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.landscape-image {
+  height: 0;
+  padding-bottom: 66%;
+}
+
+.square-image {
+  height: 0;
+  padding-bottom: 100%;
+}
