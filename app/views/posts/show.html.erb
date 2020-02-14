@@ -1,9 +1,11 @@
 <div class="site-container">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-12">
-        <%= content_tag :h1, md(@post.title), class: 'h1' %>
-        <%= content_tag :div, @user.name, class: 'mt-2' if @user.name.present? %>
+      <div class="col-md-8 col-lg-6">
+        <div class="card">
+          <%= content_tag :h1, md(@post.title), class: 'h3' %>
+          <%= content_tag :div, @user.name, class: 'mt-2' if @user.name.present? %>
+        </div>
       </div>
     </div>
   </div>

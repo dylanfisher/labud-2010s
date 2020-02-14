@@ -57,4 +57,12 @@
   transform: translate(-50%, -50%);
   max-width: 25%;
   z-index: -1;
+  // mix-blend-mode: difference;
+}
+
+.home__buttons {
+  position: fixed;
+  top: 30px;
+  right: $site-padding-sm;
+  z-index: 10;
 }

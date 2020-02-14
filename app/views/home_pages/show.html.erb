@@ -1,3 +1,8 @@
+<div class="home__buttons">
+  <%= link_to 'Grid', root_path, class: "button #{'button--inactive' if params[:view] == 'list'}" %>
+  <%= link_to 'List', root_path(view: 'list'), class: "button #{'button--inactive' unless params[:view] == 'list'}" %>
+</div>
+
 <% lazy_content = capture do %>
   <div class="lazy-content--source">
     <video src="https://s3.amazonaws.com/labud-2010s/production/v2/media_items/attachments/000/000/011/original/2010s-logo_black.mp4" class="home__logo" autoplay loop playsinline muted></video>
@@ -5,17 +10,31 @@
 <% end %>
 <%= content_tag :div, nil, class: 'lazy-content', data: { lazy_content: lazy_content } %>
 
-<% @posts.includes(:media_item, :user).shuffle.each_with_index do |post, index| %>
-  <%= content_tag :div,
-                  class: "home__post-card-wrapper col-md-6 mb-8 #{index.odd? ? 'offset-md-5' : 'offset-md-1'}",
-                  data: {
-                    image_url: post.media_item.attachment.url(:small) } do %>
-    <%= link_to post_path(post.to_friendly_param), class: 'home__post-card card blank-link' do %>
-      <%= content_tag :div, md(post.title), class: 'h3' %>
-      <%= content_tag :div, post.user.name, class: 'mt-2' %>
+<div class="container-fluid">
+  <div class="row">
+    <% @posts.each_with_index do |post, index| %>
+      <% if params[:view] == 'list' %>
+        <div class="home__post-list col-12 py-2">
+          <%= link_to post_path(post.to_friendly_param), class: 'blank-link' do %>
+            <%= content_tag :div, md(post.title), class: 'h3' %>
+            <%= content_tag :div, md(post.first_sentence), class: 'mt-2' if post.first_sentence.present? %>
+            <%= content_tag :div, post.user.name, class: 'mt-2' %>
+          <% end %>
+        </div>
+      <% else %>
+        <%= content_tag :div,
+                        class: "home__post-card-wrapper col-md-6 mb-8 #{index.odd? ? 'offset-md-5' : 'offset-md-1'}",
+                        data: {
+                          image_url: post.media_item.attachment.url(:small) } do %>
+          <%= link_to post_path(post.to_friendly_param), class: 'home__post-card card blank-link' do %>
+            <%= content_tag :div, md(post.title), class: 'h3' %>
+            <%= content_tag :div, post.user.name, class: 'mt-2' %>
+          <% end %>
+        <% end %>
+      <% end %>
     <% end %>
-  <% end %>
-<% end %>
+  </div>
+</div>
 
 <% if Setting.for(:foreward).present? %>
   <div class="home__forward-container site-container">

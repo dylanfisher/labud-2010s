@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/dylanfisher/forest.git
-  revision: e874722d76057f6021a4dd05cf00bd7f5471466b
+  revision: 95435c2db997b35e490609e67b0a4f2d06c75e5f
   specs:
     forest (0.119.0)
       aws-sdk-s3
@@ -84,16 +84,16 @@ GEM
     autoprefixer-rails (9.7.4)
       execjs
     aws-eventstream (1.0.3)
-    aws-partitions (1.270.0)
-    aws-sdk-core (3.89.1)
+    aws-partitions (1.273.0)
+    aws-sdk-core (3.90.0)
       aws-eventstream (~> 1.0, >= 1.0.2)
       aws-partitions (~> 1, >= 1.239.0)
       aws-sigv4 (~> 1.1)
       jmespath (~> 1.0)
-    aws-sdk-kms (1.28.0)
+    aws-sdk-kms (1.29.0)
       aws-sdk-core (~> 3, >= 3.71.0)
       aws-sigv4 (~> 1.1)
-    aws-sdk-s3 (1.60.1)
+    aws-sdk-s3 (1.60.2)
       aws-sdk-core (~> 3, >= 3.83.0)
       aws-sdk-kms (~> 1)
       aws-sigv4 (~> 1.1)
@@ -109,7 +109,7 @@ GEM
     climate_control (0.2.0)
     cocoon (1.2.14)
     coderay (1.1.2)
-    concurrent-ruby (1.1.5)
+    concurrent-ruby (1.1.6)
     crass (1.0.6)
     dalli (2.7.10)
     deep_cloneable (3.0.0)
@@ -151,8 +151,8 @@ GEM
     http_parser.rb (0.6.0)
     i18n (1.8.2)
       concurrent-ruby (~> 1.0)
-    jbuilder (2.9.1)
-      activesupport (>= 4.2.0)
+    jbuilder (2.10.0)
+      activesupport (>= 5.0.0)
     jmespath (1.4.0)
     jquery-fileupload-rails (1.0.0)
       actionpack (>= 3.1)
@@ -199,7 +199,7 @@ GEM
     multi_json (1.14.1)
     nenv (0.3.0)
     nio4r (2.5.2)
-    nokogiri (1.10.7)
+    nokogiri (1.10.8)
       mini_portile2 (~> 2.4.0)
     notiffany (0.1.3)
       nenv (~> 0.1)
@@ -221,7 +221,7 @@ GEM
       nio4r (~> 2.0)
     pundit (2.1.0)
       activesupport (>= 3.0.0)
-    rack (2.1.2)
+    rack (2.2.2)
     rack-cors (1.1.1)
       rack (>= 2.0.0)
     rack-test (1.1.0)

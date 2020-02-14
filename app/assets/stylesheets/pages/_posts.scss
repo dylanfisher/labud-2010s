@@ -1,0 +1,23 @@
+// Posts
+
+.controller--posts.action--show {
+  padding-top: 150px;
+
+  @include breakpoint(md) {
+    padding-top: 30px;
+  }
+}
+
+.home__post-list {
+  background-color: $black;
+  border-top: 1px solid $white;
+
+  &:last-child {
+    border-bottom: 1px solid $white;
+  }
+
+  &:hover {
+    background-color: $white;
+    color: $black;
+  }
+}

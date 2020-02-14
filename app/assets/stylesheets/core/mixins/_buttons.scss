@@ -15,4 +15,18 @@
     background-color: $black;
     color: $white;
   }
+
+  & + .button {
+    margin-left: 6px;
+  }
+}
+
+.button--inactive {
+  background-color: $black;
+  color: $white;
+
+  &:hover {
+    background-color: $white;
+    color: $black;
+  }
 }
