@@ -14,7 +14,7 @@
   <div class="row">
     <% @posts.each_with_index do |post, index| %>
       <% if params[:view] == 'list' %>
-        <div class="home__post-list col-12 py-2">
+        <div class="home__post-list col-12 py-4">
           <%= link_to post_path(post.to_friendly_param), class: 'blank-link' do %>
             <%= content_tag :div, md(post.title), class: 'h3' %>
             <%= content_tag :div, md(post.first_sentence), class: 'mt-2' if post.first_sentence.present? %>
