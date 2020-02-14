@@ -1,2 +1,2 @@
 <%= f.input :text_size, as: :select, collection: TextBlock.text_sizes.collect { |k, v| [k.titleize, k] }, include_blank: false, placeholder: 'Text Size' %>
-<%= f.input :text, markdown: true %>
+<%= f.input :text, markdown: true, hint: 'You can optionally insert media items into the text with a custom shortcode. First, look up the media item ID by viewing that media item in the library. Then, insert the media item ID into your text using the shortcode: [MEDIA_ITEM=123]. This shortcode works in all fields where markdown is supported.' %>
