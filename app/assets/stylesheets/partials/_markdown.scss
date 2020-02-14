@@ -24,3 +24,12 @@
     transform: scale(3);
   }
 }
+
+.two-column-text {
+  column-count: 1;
+  column-gap: $gutter * 2;
+
+  @include breakpoint(md) {
+    column-count: 2;
+  }
+}

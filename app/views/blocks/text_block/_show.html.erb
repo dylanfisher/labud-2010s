@@ -1,7 +1,7 @@
 <div class="site-container">
   <div class="container-fluid">
     <div class="row">
-      <%= content_tag :div, class: "col markdown #{'body-text-large' if block.large?}" do %>
+      <%= content_tag :div, class: "col markdown #{'body-text-large' if block.large?} #{'two-column-text' if block.two_column?}" do %>
         <%= md block.text %>
       <% end %>
     </div>

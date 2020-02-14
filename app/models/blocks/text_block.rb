@@ -7,7 +7,7 @@ class TextBlock < BaseBlock
   }
 
   def self.permitted_params
-    [:text, :text_size]
+    [:text, :text_size, :two_column]
   end
 
   def self.display_name
