@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_14_041026) do
+ActiveRecord::Schema.define(version: 2020_02_14_042517) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -242,6 +242,21 @@ ActiveRecord::Schema.define(version: 2020_02_14_041026) do
     t.index ["locale"], name: "index_settings_on_locale"
   end
 
+  create_table "slideshow_block_slides", force: :cascade do |t|
+    t.bigint "slideshow_block_id", null: false
+    t.bigint "media_item_id", null: false
+    t.integer "position"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["media_item_id"], name: "index_slideshow_block_slides_on_media_item_id"
+    t.index ["slideshow_block_id"], name: "index_slideshow_block_slides_on_slideshow_block_id"
+  end
+
+  create_table "slideshow_blocks", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "text_blocks", force: :cascade do |t|
     t.text "text"
     t.integer "text_size"
@@ -314,5 +329,7 @@ ActiveRecord::Schema.define(version: 2020_02_14_041026) do
   add_foreign_key "posts", "users"
   add_foreign_key "related_posts", "posts"
   add_foreign_key "related_posts", "posts", column: "related_post_id"
+  add_foreign_key "slideshow_block_slides", "media_items"
+  add_foreign_key "slideshow_block_slides", "slideshow_blocks"
   add_foreign_key "video_blocks", "media_items"
 end

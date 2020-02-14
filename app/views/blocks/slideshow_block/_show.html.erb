@@ -1,0 +1,5 @@
+<% block.slideshow_block_slides.each_with_index do |slideshow_block_slide, index| %>
+  <%= image_tag slideshow_block_slide.media_item.attachment.url(:medium),
+                class: "slideshow-block__slide #{'active' if index.zero?}",
+                style: "max-height: #{slideshow_block_slide.media_item.landscape? ? rand(50..70) : rand(70..100)}vh;" %>
+<% end %>
