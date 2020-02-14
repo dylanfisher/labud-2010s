@@ -6,6 +6,10 @@
   @include breakpoint(md) {
     padding-top: 30px;
   }
+
+  .image-block.block--last {
+    margin-bottom: 0;
+  }
 }
 
 .home__post-list {
