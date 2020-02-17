@@ -14,13 +14,16 @@
   <div class="row">
     <% @posts.each_with_index do |post, index| %>
       <% if params[:view] == 'list' %>
-        <div class="home__post-list col-12 py-4">
-          <%= link_to post_path(post.to_friendly_param), class: 'blank-link' do %>
+        <%= content_tag :div,
+                        class: 'home__post-list col-12',
+                        data: {
+                          image_url: post.media_item.attachment.url(:small) } do %>
+          <%= link_to post_path(post.to_friendly_param), class: 'blank-link py-4 d-block' do %>
             <%= content_tag :div, md(post.title), class: 'h3' %>
             <%= content_tag :div, md(post.first_sentence), class: 'mt-2' if post.first_sentence.present? %>
             <%= content_tag :div, post.user.name, class: 'mt-2' %>
           <% end %>
-        </div>
+        <% end %>
       <% else %>
         <%= content_tag :div,
                         class: "home__post-card-wrapper col-md-6 mb-8 #{index.odd? ? 'offset-md-5' : 'offset-md-1'}",

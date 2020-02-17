@@ -43,7 +43,7 @@ $(document).on('turbolinks:load', function() {
 $(document).on('turbolinks:load', function() {
   if ( !App.isHomePage() ) return;
 
-  var imageUrls = $('.home__post-card-wrapper').map(function() {
+  var imageUrls = $('[data-image-url]').map(function() {
     return $(this).attr('data-image-url');
   });
 
