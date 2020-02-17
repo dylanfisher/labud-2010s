@@ -6,10 +6,6 @@
   @include breakpoint(md) {
     padding-top: 30px;
   }
-
-  .image-block.block--last {
-    margin-bottom: 0;
-  }
 }
 
 .home__post-list {
@@ -26,7 +22,14 @@
   }
 }
 
-.post__related-posts {
-  background-color: $white;
-  color: $black;
+.all-related-post-list {
+  overflow: auto;
+  // white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+.all-related-post-list__item {
+  // width: 100px;
+  // margin: 0 ($gutter / 2);
+  // display: inline-block;
 }

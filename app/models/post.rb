@@ -12,7 +12,6 @@ class Post < Forest::ApplicationRecord
   has_many :related_posts, -> { order(:position) }, dependent: :destroy, inverse_of: :post
   accepts_nested_attributes_for :related_posts, reject_if: :all_blank, allow_destroy: true
 
-
   scope :by_user, -> (user) { where(user: user) }
   scope :by_username, -> { joins(:user).order('users.last_name ASC, users.first_name ASC, users.email ASC') }
 

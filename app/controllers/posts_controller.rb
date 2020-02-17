@@ -4,6 +4,7 @@ class PostsController < ForestController
   def show
     authorize @post
     @user = @post.user
+    @all_posts = Post.includes(:media_item, :user).all.published.shuffle
   end
 
   private
