@@ -3,7 +3,12 @@ class Admin::PostsController < Admin::ForestController
 
   def index
     @posts = apply_scopes(Post).by_id.page(params[:page])
-    unless current_user.admin?
+
+    if request.xhr?
+      @posts = @posts.published
+    end
+
+    unless current_user.admin? || request.xhr?
       @posts = @posts.by_user(current_user)
     end
   end
