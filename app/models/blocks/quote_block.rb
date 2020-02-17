@@ -7,7 +7,7 @@ class QuoteBlock < BaseBlock
     'Quote Block'
   end
 
-  # def self.display_icon
-  #   'glyphicon glyphicon-align-left'
-  # end
+  def self.display_icon
+    'glyphicon glyphicon-font'
+  end
 end

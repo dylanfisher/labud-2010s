@@ -1,0 +1,14 @@
+<% lazy_content = capture do %>
+  <div class="lazy-content--source">
+    <%= audio_tag block.media_item.attachment.url, controls: true, class: 'audio-block__audio' %>
+  </div>
+<% end %>
+<div class="site-container">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-10 offset-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+        <%= content_tag :div, nil, class: 'lazy-content', data: { lazy_content: lazy_content } %>
+      </div>
+    </div>
+  </div>
+</div>

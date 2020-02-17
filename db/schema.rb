@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_14_042517) do
+ActiveRecord::Schema.define(version: 2020_02_17_035439) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "audio_blocks", force: :cascade do |t|
+    t.bigint "media_item_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["media_item_id"], name: "index_audio_blocks_on_media_item_id"
+  end
 
   create_table "base_blocks", id: :serial, force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -318,6 +325,7 @@ ActiveRecord::Schema.define(version: 2020_02_14_042517) do
     t.index ["media_item_id"], name: "index_video_blocks_on_media_item_id"
   end
 
+  add_foreign_key "audio_blocks", "media_items"
   add_foreign_key "block_slots", "block_kinds"
   add_foreign_key "block_slots", "block_layouts"
   add_foreign_key "collage_block_items", "collage_blocks"

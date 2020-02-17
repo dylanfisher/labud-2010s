@@ -1,0 +1,8 @@
+<div class="row">
+  <div class="col-sm-6">
+    <%= f.association :media_item,
+                      label: 'Audio file',
+                      remote: { path: admin_media_items_path(audio: true) },
+                      hint: "Upload an audio file to the #{link_to('Media Library', admin_media_items_path, target: '_blank')}, then select it here.".html_safe %>
+  </div>
+</div>

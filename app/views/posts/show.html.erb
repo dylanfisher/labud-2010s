@@ -18,7 +18,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col">
-          <div class="h2">Connections</div>
+          <div class="h4">Connections</div>
         </div>
       </div>
     </div>
@@ -32,7 +32,7 @@
         <div class="container-fluid">
           <div class="row">
             <% @post.related_posts.each do |post_relation| %>
-              <div class="col-md-6 my-4">
+              <div class="col-md-4 my-4">
                 <div class="row markdown">
                   <div class="col-3 col-md-4 col-xl-3">
                     <%= link_to post_path(post_relation.related_post.to_friendly_param), class: 'blank-link' do %>
@@ -46,7 +46,7 @@
                     <%= content_tag :div, post_relation.related_post.user.name if post_relation.related_post.user.name.present? %>
                   </div>
                   <% if post_relation.text.present? %>
-                    <div class="col-12 mt-2">
+                    <div class="col-12 mt-2 body-text-small">
                       <%= md post_relation.text %>
                     </div>
                   <% end %>
