@@ -15,6 +15,10 @@
       @include h3;
     }
   }
+
+  a {
+    @include default-link;
+  }
 }
 
 .md-image {
