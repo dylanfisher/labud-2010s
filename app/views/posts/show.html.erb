@@ -13,12 +13,12 @@
 
 <%= render_blocks @post %>
 
-<div class="inverted-color-scheme pt-4">
+<div class="connections-wrapper pt-4">
   <div class="site-container">
     <div class="container-fluid">
       <div class="row">
         <div class="col">
-          <div class="h4">Connections</div>
+          <div class="h3">Connections</div>
         </div>
       </div>
     </div>
@@ -27,33 +27,31 @@
 
 <% cache [application_cache_key, @post, 'related_posts'], expires_in: 4.weeks do %>
   <% if @post.related_posts.present? %>
-    <div class="inverted-color-scheme">
-      <div class="site-container">
-        <div class="container-fluid">
-          <div class="row">
-            <% @post.related_posts.each do |post_relation| %>
-              <div class="col-md-4 my-4">
-                <div class="row markdown">
-                  <div class="col-3 col-md-4 col-xl-3">
-                    <%= link_to post_path(post_relation.related_post.to_friendly_param), class: 'blank-link' do %>
-                      <%= lazy_image post_relation.related_post.media_item, background: true, size: :medium, class: 'background-image square-image' %>
-                    <% end %>
-                  </div>
-                  <div class="col-9 col-md-8 col-xl-9">
-                    <div class="h4">
-                      <%= link_to md(post_relation.related_post.title), post_path(post_relation.related_post.to_friendly_param), class: 'blank-link-hover' %>
-                    </div>
-                    <%= content_tag :div, post_relation.related_post.user.name if post_relation.related_post.user.name.present? %>
-                  </div>
-                  <% if post_relation.text.present? %>
-                    <div class="col-12 mt-2 body-text-small">
-                      <%= md post_relation.text %>
-                    </div>
+    <div class="site-container">
+      <div class="container-fluid">
+        <div class="row">
+          <% @post.related_posts.each do |post_relation| %>
+            <div class="col-md-4 my-4">
+              <div class="row markdown">
+                <div class="col-3 col-md-4 col-xl-3">
+                  <%= link_to post_path(post_relation.related_post.to_friendly_param), class: 'blank-link' do %>
+                    <%= lazy_image post_relation.related_post.media_item, background: true, size: :medium, class: 'background-image square-image' %>
                   <% end %>
                 </div>
+                <div class="col-9 col-md-8 col-xl-9">
+                  <div class="h4">
+                    <%= link_to md(post_relation.related_post.title), post_path(post_relation.related_post.to_friendly_param), class: 'blank-link-hover' %>
+                  </div>
+                  <%= content_tag :div, post_relation.related_post.user.name if post_relation.related_post.user.name.present? %>
+                </div>
+                <% if post_relation.text.present? %>
+                  <div class="col-12 mt-2 body-text-small">
+                    <%= md post_relation.text %>
+                  </div>
+                <% end %>
               </div>
-            <% end %>
-          </div>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
@@ -61,7 +59,7 @@
 <% end %>
 
 <% if @all_posts.present? %>
-  <div class="inverted-color-scheme pt-4 pb-2">
+  <div class="pt-3">
     <div class="container-fluid">
       <div id="all-related-post-list" class="all-related-post-list row small-gutters flex-nowrap">
         <% @all_posts.each do |post| %>

@@ -17,6 +17,11 @@
   animation: header-jiggle 1s infinite linear;
   animation-play-state: paused;
   animation-direction: alternate;
+  width: 80px;
+
+  @include breakpoint(md) {
+    width: auto;
+  }
 
   &:hover {
     animation-play-state: running;

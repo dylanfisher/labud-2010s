@@ -4,6 +4,9 @@ Rails.application.routes.draw do
 
   resources :posts, only: [:show]
 
+  get '/student-process', to: 'process_pages#student', page_path: 'student-process'
+  get '/teacher-process', to: 'process_pages#teacher', page_path: 'teacher-process'
+
   # Admin
   namespace :admin do
     resources :posts

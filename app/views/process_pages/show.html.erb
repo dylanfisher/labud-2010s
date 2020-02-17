@@ -1,0 +1,16 @@
+<div class="site-container">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col text-center display-title">
+        <%= md @page.title %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="text-center mt-2">
+  <%= link_to 'Student', student_process_path, class: "button #{'button--inactive' if action_name == 'teacher'}" %>
+  <%= link_to 'Teacher', teacher_process_path, class: "button #{'button--inactive' unless action_name == 'teacher'}" %>
+</div>
+
+<%= render_blocks @page %>

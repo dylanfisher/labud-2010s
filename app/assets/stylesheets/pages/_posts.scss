@@ -22,14 +22,11 @@
   }
 }
 
-.all-related-post-list {
-  overflow: auto;
-  // white-space: nowrap;
-  -webkit-overflow-scrolling: touch;
+.connections-wrapper {
+  border-top: 2px solid;
 }
 
-.all-related-post-list__item {
-  // width: 100px;
-  // margin: 0 ($gutter / 2);
-  // display: inline-block;
+.all-related-post-list {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
