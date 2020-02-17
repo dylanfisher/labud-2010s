@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: 'home_pages#show'
   get '/home', to: redirect('/')
 
-  resources :posts, only: [:index, :show]
+  resources :posts, only: [:show]
 
   # Admin
   namespace :admin do

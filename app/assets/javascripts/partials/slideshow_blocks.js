@@ -1,8 +1,8 @@
 // Slideshow blocks
 
-$(document).on('click', '.slideshow-block', function() {
-  var $block = $(this);
-  var $allSlides = $block.find('.slideshow-block__slide');
+$(document).on('click', '.slideshow-block__slide-wrapper', function() {
+  var $wrapper = $(this);
+  var $allSlides = $wrapper.find('.slideshow-block__slide');
   var $activeSlide = $allSlides.filter('.active').first();
   var $nextSlide = $activeSlide.nextWrap();
   var maxZIndex = 0;

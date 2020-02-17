@@ -1,9 +1,16 @@
 // Slideshow Block
 
+$slideshow-block-vert-breakpoint: 900px;
+
 .slideshow-block {
   height: 100vh;
   position: relative;
   cursor: pointer;
+  overflow: hidden;
+
+  @media (min-height: $slideshow-block-vert-breakpoint) {
+    height: 80vh;
+  }
 }
 
 .slideshow-block__slide {
@@ -14,5 +21,19 @@
 
   &.active {
     z-index: 1;
+  }
+}
+
+.slideshow-block__slide-wrapper--small {
+  @media (min-height: $slideshow-block-vert-breakpoint) {
+    display: none;
+  }
+}
+
+.slideshow-block__slide-wrapper--large {
+  display: none;
+
+  @media (min-height: $slideshow-block-vert-breakpoint) {
+    display: block;
   }
 }
