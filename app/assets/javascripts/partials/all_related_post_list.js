@@ -11,7 +11,5 @@ $(document).on('turbolinks:load', function() {
   var itemWidth = $item.outerWidth(true);
   var totalWidth = itemCount * itemWidth;
 
-  console.log(totalWidth);
-
   $postList.scrollLeft( Math.abs(App.windowWidth - totalWidth) / 2 );
 });
