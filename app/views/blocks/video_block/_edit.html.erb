@@ -1,6 +1,9 @@
 <div class="row">
   <div class="col-sm-6">
-    <%= f.association :media_item, label: 'Video', remote: { path: admin_media_items_path(videos: true) }, hint: 'Upload your video to the media library and select it here.' %>
+    <%= f.association :media_item,
+                      label: 'Video',
+                      remote: { path: admin_media_items_path(videos: true) },
+                      hint: 'Upload your video to the media library and select it here. Make sure to save the video file as .mp4 or your video will not load. If you have a .mov file, simply replace the .mov extension with .mp4 and re-upload the video.' %>
   </div>
   <div class="col-sm-6">
     <%= f.input :autoplay, hint: 'Autoplaying videos are muted and loop.' %>
