@@ -1,6 +1,6 @@
 <div class="home__buttons">
-  <%= link_to 'Grid', root_path, class: "button #{'button--inactive' if params[:view] == 'list'}" %>
-  <%= link_to 'List', root_path(view: 'list'), class: "button #{'button--inactive' unless params[:view] == 'list'}" %>
+  <%= link_to 'Grid', root_path(anchor: 'posts'), class: "button #{'button--inactive' if params[:view] == 'list'}" %>
+  <%= link_to 'List', root_path(view: 'list', anchor: 'posts'), class: "button #{'button--inactive' unless params[:view] == 'list'}" %>
 </div>
 
 <% if Setting.for(:home_page_video_url).present? %>
@@ -12,7 +12,7 @@
   <%= content_tag :div, nil, class: 'lazy-content', data: { lazy_content: lazy_content } %>
 <% end %>
 
-<div class="container-fluid">
+<div id="posts" class="container-fluid pt-2">
   <div class="row">
     <% cache [application_cache_key, 'home_post_list', (params[:view] == 'list')], expires_in: 4.weeks do %>
       <% @posts.each_with_index do |post, index| %>
@@ -23,8 +23,15 @@
                             image_url: post.media_item.attachment.url(:small) } do %>
             <%= link_to post_path(post.to_friendly_param), class: 'blank-link py-4 d-block' do %>
               <%= content_tag :div, md(post.title), class: 'h3' %>
-              <%= content_tag :div, md(post.first_sentence), class: 'mt-2' if post.first_sentence.present? %>
-              <%= content_tag :div, post.user.name, class: 'mt-2' %>
+              <%= content_tag :div, post.user.name, class: 'mt-1' %>
+              <div class="row mt-2">
+                <div class="col-md-2 d-none d-md-block">
+                  <%= lazy_image post.media_item, size: :small, background: true, class: 'background-image-contain square-image' %>
+                </div>
+                <div class="col-12 col-md-10 mt-2">
+                  <%= content_tag :div, md(post.first_sentence) if post.first_sentence.present? %>
+                </div>
+              </div>
             <% end %>
           <% end %>
         <% else %>

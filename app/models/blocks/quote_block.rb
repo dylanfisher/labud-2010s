@@ -10,4 +10,8 @@ class QuoteBlock < BaseBlock
   def self.display_icon
     'glyphicon glyphicon-font'
   end
+
+  def hidden?
+    quote.blank?
+  end
 end

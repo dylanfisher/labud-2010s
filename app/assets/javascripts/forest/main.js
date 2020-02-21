@@ -33,6 +33,8 @@ $(document).on('turbolinks:load', function(e) {
   App.runFunctions(App.pageLoad);
   App.runFunctions(App.pageResize);
   App.runFunctions(App.pageScroll);
+
+  $(window).trigger('scroll.lazyScroll');
 });
 
 //////////////////////////////////////////////////////////////
@@ -44,6 +46,14 @@ $(window).on('scroll', function() {
 
   App.runFunctions(App.pageScroll);
 });
+
+$(window).on('scroll.lazyScroll', $.throttle( 250, function() {
+  if ( App.scrollTop > 0 ) {
+    App.$body.addClass('has-scrolled');
+  } else {
+    App.$body.removeClass('has-scrolled');
+  }
+}));
 
 //////////////////////////////////////////////////////////////
 // On resize
