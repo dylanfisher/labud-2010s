@@ -22,7 +22,11 @@ class Post < Forest::ApplicationRecord
   end
 
   def first_sentence
-    blocks.find { |b| b.try(:text).present? }.try(:text).to_s.truncate_words(40)
+    first_sentence_text = blocks.find { |b| b.try(:text).present? }.try(:text).to_s.truncate_words(40)
+    if first_sentence_text.blank?
+      first_sentence_text = blocks.find { |b| b.try(:quote).present? }.try(:quote).to_s.truncate_words(40)
+    end
+    first_sentence_text
   end
 
   def to_select2_response
