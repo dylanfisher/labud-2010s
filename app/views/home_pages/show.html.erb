@@ -3,12 +3,14 @@
   <%= link_to 'List', root_path(view: 'list'), class: "button #{'button--inactive' unless params[:view] == 'list'}" %>
 </div>
 
-<% lazy_content = capture do %>
-  <div class="lazy-content--source">
-    <video src="https://s3.amazonaws.com/labud-2010s/production/v2/media_items/attachments/000/000/011/original/2010s-logo_black.mp4" class="home__logo" autoplay loop playsinline muted></video>
-  </div>
+<% if Setting.for(:home_page_video_url).present? %>
+  <% lazy_content = capture do %>
+    <div class="lazy-content--source">
+      <video src="<%= Setting.for(:home_page_video_url) %>" class="home__logo" autoplay loop playsinline muted></video>
+    </div>
+  <% end %>
+  <%= content_tag :div, nil, class: 'lazy-content', data: { lazy_content: lazy_content } %>
 <% end %>
-<%= content_tag :div, nil, class: 'lazy-content', data: { lazy_content: lazy_content } %>
 
 <div class="container-fluid">
   <div class="row">
